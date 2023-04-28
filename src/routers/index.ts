@@ -10,4 +10,8 @@ rootRouter.get("/", (req, res) => {
 
 rootRouter.get("/folha/listar", (req, res) => rootController.get(req, res));
 
+rootRouter.post("/folha/cadastrar", (req, res) =>
+  rootController.post(req, res)
+);
+
 export { rootRouter };

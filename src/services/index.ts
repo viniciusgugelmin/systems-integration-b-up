@@ -2,16 +2,21 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const folhasProcessadas = []
+const folhasProcessadas = [];
 
 class RootService {
   public async get() {
-    const apiA = process.env.API_A;
-
     return {
       folhasProcessadas,
-      totalSalarioLiquido: folhasProcessadas.reduce((total,folha) => total + folha.liquido,0)
+      totalSalarioLiquido: folhasProcessadas.reduce(
+        (total, folha) => total + folha.liquido,
+        0
+      ),
     };
+  }
+
+  public async post(folhas) {
+    folhasProcessadas.push(...folhas);
   }
 }
 

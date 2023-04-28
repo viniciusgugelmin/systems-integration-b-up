@@ -9,6 +9,15 @@ class RootController {
 
     res.send(folhas);
   }
+
+  public async post(req: Request, res: Response) {
+    const folhas = req.body;
+    const rootService = new RootService();
+
+    await rootService.post(folhas);
+
+    res.send();
+  }
 }
 
 export { RootController };
